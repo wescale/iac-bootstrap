@@ -1,11 +1,11 @@
-# mypackage_wsc
+# iac-bootstrap
 
-mypackage_wsc is Python package to automate deploiment of infrastructure. Writtent and compatible with python 3 .
-to use mypackage_wsc you should follow Wedeployer skeletton.
+iac-bootstrap is Python package to automate deploiment of infrastructure. Writtent and compatible with python 3 .
+to use iac-bootstrap you should follow infra-base (structure).
 
 ## Documentation
 
- Documentation to Wedeployer skeletton
+ Documentation to infra-base
  <br>
 <https://infra-base-doc.readthedocs.io/en/latest/>
 </br>
@@ -15,32 +15,32 @@ to use mypackage_wsc you should follow Wedeployer skeletton.
 Using pip, the Python package manager:
 
 ```
-pip install --user mypackage_wsc==0.0.7
+pip install --user iac-bootstrap==1.0.0
 ```
 
-mypackage_wsc is developed for Linux os , No windows version is available.
+iac-bootstrap is developed for Linux os , No windows version is available.
 
 ## Usage
 
-mypackage_wsc automate terraform initialization and deploiment ,although generating necessary files for ansible and launch playbook.<br>
+iac-bootstrap automate terraform initialization and deploiment ,although generating necessary files for ansible and launch playbook.<br>
 I will describe below simple usage.
 
-- mypackage_wsc.infra_bootstrap:
+- iac_bootstrap.infra_bootstrap:
 
 ```
-python -m mypackage_wsc.infra_bootstrap --account <group>-<env>
+python -m iac_bootstrap.infra_bootstrap --account <group>-<env>
 ```
 
-- mypackage_wsc.infra_builder_terraform:
+- iac_bootstrap.infra_builder_terraform:
 
 ```
-python -m mypackage_wsc.infra_builder_terraform --account <group>-<env>
+python -m iac_bootstrap.infra_builder_terraform --account <group>-<env>
 ```
 
-- mypackage_wsc.install_nginx:
+- iac_bootstrap.install_nginx:
 
 ```
-python -m mypackage_wsc.install_nginx --group <group>-<env>
+python -m iac_bootstrap.install_nginx --group <group>-<env>
 ```
 
 ## Features
