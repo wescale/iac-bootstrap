@@ -1,0 +1,12 @@
+[defaults]
+retry_files_enabled = false
+inventory = ./configs/{{group}}/{{env}}/ansible/inventory
+roles_path = ./ansible/roles/external
+host_key_checking = false
+stdout_callback = debug
+forks = 12
+timeout = 60
+
+[ssh_connection]
+pipelining=true
+ssh_args="-F ./configs/{{group}}/{{env}}/ansible/ssh.cfg"

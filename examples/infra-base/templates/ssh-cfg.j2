@@ -1,0 +1,16 @@
+Host bastion {{ bastion_public_ip }}
+  Hostname {{ bastion_public_ip }}
+  User admin
+  IdentityFile ./configs/{{ group }}/{{ env }}/ssh/id_rsa
+  StrictHostKeyChecking False
+
+{% for ip in nginx_ips %}
+{% if ip != '' %}
+Host nginx {{ip}}
+  Hostname  {{ip}}
+  ProxyCommand ssh -F ./configs/{{ group }}/{{ env }}/ansible/ssh.cfg -W %h:%p bastion
+  User admin
+  IdentityFile ./configs/{{ group }}/{{ env }}/ssh/id_rsa
+  StrictHostKeyChecking False
+{% endif %}
+{% endfor %}

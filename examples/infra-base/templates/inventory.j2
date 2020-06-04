@@ -1,0 +1,7 @@
+
+[bastions]
+{{ bastion_public_ip }}
+[nginx]
+{% for ip in nginx_ips -%}
+{{ip}}
+{% endfor %}
