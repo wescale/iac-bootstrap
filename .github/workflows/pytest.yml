@@ -11,15 +11,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Install pytest
-        run: pip3 install pytest jinja2 boto3 
-      - name: test boto3 
-        run: python3 ./iac-bootstrap/infra_builder_terraform.py
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-
-
+        run: pip3 install pytest jinja2 boto3
 
       - name: test with pytest
         run: pytest tests/test_mypackage.py -v
