@@ -6,7 +6,8 @@ to use mypackage_wsc you should follow Wedeployer skeletton.
 ## Documentation
 
  Documentation to Wedeployer skeletton
- <br>
+<br>
+
 <https://infra-base-doc.readthedocs.io/en/latest/>
 </br>
 
@@ -15,7 +16,7 @@ to use mypackage_wsc you should follow Wedeployer skeletton.
 Using pip, the Python package manager:
 
 ```
-pip install --user mypackage_wsc==0.0.7
+pip install --user mypackage_wsc==1.0.0
 ```
 
 mypackage_wsc is developed for Linux os , No windows version is available.

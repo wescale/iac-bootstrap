@@ -1,17 +1,15 @@
-infra base quick start
-======================
+# infra base quick start
 
-Local configuration
--------------------
+## Local configuration
 
-### Requirements :
+### Requirements
 
 - Docker
 - Bash
 - An AWS account
 - All the dependencies listed in the Docker image (that you can use directly)
 
-### Docker environment :
+### Docker environment
 
 You can create a container to ensure you have all the correct softwares
 and dependencies to work with the project, just by typing :
@@ -20,10 +18,9 @@ and dependencies to work with the project, just by typing :
 
 And congratulations ! you have your workstation ready for work.
 
-Project setup
--------------
+### Project setup
 
-### Set your naming conventions :
+### Set your naming conventions
 
 To set the configuration for your account,
 
@@ -48,8 +45,7 @@ folders :
 - mygroup : is a logical entity that represent your context (for instance : “mycompany”)
 - myenv : is the iteration of the infrastructure dedicated to a purpose (for instance : “dev”, “staging” or “prod”)
 
-Ansible configuration:
-----------------------
+### Ansible configuration
 
 - First,we install Nginx Role :
 
@@ -63,8 +59,7 @@ Ansible configuration:
 
     export ANSIBLE_CONFIG="$PWD/<mygroup>-<myenv>-ansible.cfg"
 
-Build Infrastructure :
-----------------------
+### Build Infrastructure
 
 Run bootstrap script:
 
@@ -78,7 +73,7 @@ Run Build-infra script:
 
 And Voilà, you have created an infrastructure in your aws account !
 
-### Ansible Nginx deployment :
+### Ansible Nginx deployment
 
 Now the final step is to install nginx:
 

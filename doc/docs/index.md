@@ -1,29 +1,27 @@
+# Table Of Contents
+1. [ AWS Naming convention ](naming.md)
+2. [ General Tagging Strategy ](tagging.md)
+3. [ QuickStart ](quickstart.md)
 
-# wedeployer skelleton Documentation
+# infra-base Documentation
 
-introduction
-============
+## introduction
 
-wedeployer skelleton is structure of folders ,it has been made to
-facilitate the building , deploiment and configuration of the
-infrastructure.
+infra-base is structure of folders, it has been made to facilitate the building, deploiment and configuration of the infrastructure.
 
-Benefits
-========
+## Benefits
 
-- wedeployer skelleton allows you to launch wedeployer python package.
+- infra-base allows you to launch iac-bootstrap python package.
 - you can use Docker workstation.
 - high structure which facilitates debugging problems.
 
-wedeployer package
-==================
+## iac-bootstrap package
 
-- wedeployer github page:
+- iac-bootstrap github page:
 
-[Github wedployer repo](https://github.com/mehdi-wsc/mypackage)
+[Github iac-bootstrap repo](https://github.com/WeScale/iac-bootstrap)
 
-Terraform structure
-===================
+## Terraform structure
 
 tree below describes the required organization to set files:
 
@@ -40,8 +38,7 @@ tree below describes the required organization to set files:
 - After bootstrap and layers you should specify the provider.
 - Name of layer should be : xx-\<name of layer\>(with xx from 00 to 99).
 
-configuration structure
-=======================
+## configuration structure
 
 To set the configuration for your account,
 
@@ -59,20 +56,16 @@ There is an example of configuration here :
                 ├── commons.tfvars
                 └── layer-xx-<name of layer>.tfvars
 
-To adapt to your own account and set your own values,
-
-just copy paste the folder "mygroup", and change the names of the
-folders :
+To adapt to your own account and set your own values, just copy paste the folder "mygroup", and change the names of the folders :
 
 - mygroup: is a logical entity that represent your context (for instance : "mycompany").
 - myenv: is the iteration of the infrastructure dedicated to a purpose (for instance : "dev", "staging" or "prod").
 - Terraform tfvars: the name of file should be layer-xx-\<name of layer\>.tfvars.
 - Ansible configs: you set ssh.cfg and inventory.
 
-ansible structure
-=================
+## ansible structure
 
-ansible structure is simple , in your root create ansible folder and set
+ansible structure is simple, in your root create ansible folder and set
 your main.yml inside it, like below:
 
     ansible
@@ -82,20 +75,18 @@ your main.yml inside it, like below:
 
 and specify roles in roles subdirectory.
 
-configuration and templates files
-=================================
+## configuration and templates files
 
-- I had jinja2 templates to generate ansible configuration files  (ssh.cfg ,inventory,ansible.cfg).
+- I had jinja2 templates to generate ansible configuration files  (ssh.cfg, inventory,ansible.cfg).
 - you can already customize your templates files in :
 
 <!-- -->
 
     ./templates
 
-Docker workstation
-==================
+## Docker workstation
 
--   You can define workstation to work in :
+- You can define workstation to work in :
 
 <!-- -->
 
@@ -103,13 +94,10 @@ Docker workstation
      ├── Dockerfile
      └── launch.sh
 
-I already set Dockerfile and Script to launch it , however you can
+I already set Dockerfile and Script to launch it, however you can
 customize it.
 
-Exemple configuration:
-======================
-
-:
+## Exemple configuration
 
     ├── ansible
     │   └── roles
@@ -133,7 +121,7 @@ Exemple configuration:
         ├── Dockerfile
         └── launch.sh
 
-- to understand how it works , we have infra-base quickstart example:
+- to understand how it works, we have infra-base quickstart example:
 
 doc
 :   [Quick start page](./quickstart.md)
