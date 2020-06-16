@@ -1,7 +1,7 @@
 import os
 import argparse
 import logging
-from mypackage_wsc import generate
+from iac-bootstrap import generate
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
