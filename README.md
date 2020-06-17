@@ -5,9 +5,9 @@ to use iac-bootstrap you should follow infra-base (structure).
 
 ## Documentation
 
+<br>
  Documentation to infra-base
- <br>
-<https://infra-base-doc.readthedocs.io/en/latest/>
+<https://iac-bootstrap.readthedocs.io/en/latest/>
 </br>
 
 ## installation
@@ -15,10 +15,12 @@ to use iac-bootstrap you should follow infra-base (structure).
 Using pip, the Python package manager:
 
 ```
+=======
 pip install --user iac-bootstrap==1.0.0
+
 ```
 
-iac-bootstrap is developed for Linux os , No windows version is available.
+iac-bootstrap is developed for Linux , No windows version is available.
 
 ## Usage
 
@@ -76,4 +78,4 @@ optional arguments:
 
 ## license
 
-[GNU GENERAL PUBLIC LICENSE](https://github.com/mehdi-wsc/mypackage/blob/master/LICENSE)
+[GNU GENERAL PUBLIC LICENSE](https://github.com/WeScale/iac-bootstrap/blob/master/LICENSE)
