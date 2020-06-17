@@ -1,5 +1,8 @@
-import setuptools
+"""
+setup
 
+"""
+import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
@@ -11,7 +14,7 @@ setuptools.setup(
     description="Python package to automate deploiment of the infrastructures",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/mehdi-wsc/mypackage.git",
+    url="https://github.com/WeScale/iac-bootstrap.git",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -5,15 +5,9 @@ to use iac-bootstrap you should follow infra-base (structure).
 
 ## Documentation
 
-<<<<<<< HEAD
- Documentation to Wedeployer skeletton
 <br>
-
-=======
  Documentation to infra-base
- <br>
->>>>>>> da282ed68c558fd026e84be105c0a955cf67c3f5
-<https://infra-base-doc.readthedocs.io/en/latest/>
+<https://iac-bootstrap.readthedocs.io/en/latest/>
 </br>
 
 ## installation
@@ -21,14 +15,12 @@ to use iac-bootstrap you should follow infra-base (structure).
 Using pip, the Python package manager:
 
 ```
-<<<<<<< HEAD
-pip install --user mypackage_wsc==1.0.0
 =======
 pip install --user iac-bootstrap==1.0.0
->>>>>>> da282ed68c558fd026e84be105c0a955cf67c3f5
+
 ```
 
-iac-bootstrap is developed for Linux os , No windows version is available.
+iac-bootstrap is developed for Linux , No windows version is available.
 
 ## Usage
 
@@ -86,4 +78,4 @@ optional arguments:
 
 ## license
 
-[GNU GENERAL PUBLIC LICENSE](https://github.com/mehdi-wsc/mypackage/blob/master/LICENSE)
+[GNU GENERAL PUBLIC LICENSE](https://github.com/WeScale/iac-bootstrap/blob/master/LICENSE)
