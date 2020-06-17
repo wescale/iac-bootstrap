@@ -4,6 +4,7 @@ iac-bootstrap is Python package to automate deploiment of infrastructure. Writte
 to use iac-bootstrap you should follow infra-base (structure).
 
 ## Documentation
+
 Documentation to infra-base
 <br>
 <https://iac-bootstrap.readthedocs.io/en/latest/>
@@ -15,7 +16,7 @@ Using pip, the Python package manager:
 
 ```
 
-pip install --user iac-bootstrap==1.0.0
+pip install --user iac-bootstrap==1.0.1
 
 ```
 
