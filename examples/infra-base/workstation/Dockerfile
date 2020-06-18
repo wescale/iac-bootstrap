@@ -22,7 +22,7 @@ RUN apt-get update \
   && pip3 install jinja2==${JINJA_VERSION} \
   && pip3 install netaddr==${NETADDR_VERSION} \
   && pip3 install boto3==${BOTO3_VERSION} \
-  && pip3 install mypackage_wsc==${MYPACKAGE_VERSION}
+  && pip3 install iac-bootstrap==${MYPACKAGE_VERSION}
 
 
 

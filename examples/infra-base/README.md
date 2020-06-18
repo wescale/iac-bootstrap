@@ -2,14 +2,14 @@
 
 ## Local configuration
 
-### Requirements :
+### Requirements:
 
 - Docker
 - Bash
 - An AWS account
 - All the dependencies listed in the Docker image (that you can use directly)
 
-### Docker environment :
+### Docker environment:
 
 You can create a container to ensure you have all the correct software and dependencies to work with the project, just by typing :
 
@@ -43,54 +43,45 @@ configs
 
 To adapt to your own account and set your own values,
 
-just copy paste the folder "mygroup", and change the names of the folders :
+just copy paste the folder "mygroup", and change the names of the folders:
 
 * mygroup : is a logical entity that represent your context (for instance : "mycompany")
 * myenv : is the iteration of the infrastructure dedicated to a purpose (for instance : "dev", "staging" or "prod")
 
 ## Ansible configuration:
 
-* First,we install Nginx Role :
+* First, we install Nginx Role:
 
 ```
-
-ansible-galaxy install mehdi_wsc.nginx -p ./ansible/roles/external/
-
+ansible-galaxy install wescale.nginx -p ./ansible/roles/external/
 ```
-* Second,We specify ansible configuration for the environnement:
+
+* Second, We specify ansible configuration for the environnement:
+
 ```
 export ANSIBLE_CONFIG="$PWD/<mygroup>-<myenv>-ansible.cfg"
 ```
 
-## Ansible configuration:
-* First,we install Nginx Role :
-```
-ansible-galaxy install mehdi_wsc.nginx -p ./ansible/roles/external/
+## Build Infrastructure:
 
-```
-* Second,We specify ansible configuration for the environnement:
-```
-export ANSIBLE_CONFIG="$PWD/<mygroup>-<myenv>-ansible.cfg"
-```
-
-## Build Infrastructure :
 - Run bootstrap script:
+
 ```
-python -m mypackage_wsc.infra_bootstrap --provider aws --account < mygroup >-< myenv >
+python -m iac_bootstrap.infra_bootstrap --provider aws --account < mygroup >-< myenv >
 ```
 
 Run Build-infra script:
 ```
-python -m mypackage_wsc.infra_builder_terraform --account < mygroup >-< myenv >
+python -m iac_bootstrap.infra_builder_terraform --account < mygroup >-< myenv >
 ```
 
 And Voilà, you have created an infrastructure in your aws account !
 
-### Ansible Nginx deployment :
+### Ansible Nginx deployment:
 
 Now the final step is to install nginx:
 ```
-python -m mypackage_wsc.install_nginx --group < mygroup > --env < myenv >
+python -m iac_bootstrap.install_nginx --group < mygroup > --env < myenv >
 
 ```
 
