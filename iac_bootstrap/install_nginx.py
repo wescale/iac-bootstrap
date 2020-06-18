@@ -1,7 +1,7 @@
 import os
 import argparse
 import logging
-from iac-bootstrap import generate
+from iac_bootstrap import generate
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

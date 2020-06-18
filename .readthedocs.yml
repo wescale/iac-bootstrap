@@ -8,4 +8,4 @@ version: 2
 
 # Build documentation with MkDocs
 mkdocs:
-  configuration: ./doc/mkdocs.yml
+  configuration: ./docs/mkdocs.yml
