@@ -5,8 +5,8 @@ resource "aws_key_pair" "pub_key" {
 }
 module "bastion" {
 
-  source                    = "mehdi-wsc/asg-wsc/aws"
-  version                   = "0.0.6"
+  source                    = "WeScale/asg/aws"
+  version                   = "1.0.0"
   name                      = "${var.group}-${var.env}-bastion-asg"
   max_size                  = "1"
   min_size                  = "0"
@@ -19,9 +19,9 @@ module "bastion" {
   ami                       = data.aws_ami.debian.id
   instance_type             = "t2.micro"
 
-  key             = "${var.firstname}.${var.lastname}"
-  ip              = true
-  security_groups = ["${aws_security_group.bastion.id}"]
+  key                       = "${var.firstname}.${var.lastname}"
+  ip                        = true
+  security_groups           = ["${aws_security_group.bastion.id}"]
   firstname                 = "${var.firstname}"
   lastname                  = "${var.lastname}"
   owner                     = "${var.owner}"
@@ -30,9 +30,8 @@ module "bastion" {
 }
 module "nginx" {
 
-  source  = "mehdi-wsc/asg-wsc/aws"
-  version = "0.0.6"
-
+  source                    = "WeScale/asg/aws"
+  version                   = "1.0.0"
   name                      = "${var.group}-${var.env}-nginx-asg"
   max_size                  = "5"
   min_size                  = "2"

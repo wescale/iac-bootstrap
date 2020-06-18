@@ -1,0 +1,6 @@
+group = "mygroup"
+env = "myenv"
+region = "eu-west-1"
+firstname = "Your first name"
+lastname = "Your last name"
+owner = "owner of the account"

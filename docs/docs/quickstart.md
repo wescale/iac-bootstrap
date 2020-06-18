@@ -51,7 +51,7 @@ folders :
 
 <!-- -->
 
-    ansible-galaxy install mehdi_wsc.nginx -p ./ansible/roles/external/
+    ansible-galaxy install wescale.nginx -p ./ansible/roles/external/
 
 - Second,We specify ansible configuration for the environnement:
 
@@ -65,11 +65,11 @@ Run bootstrap script:
 
 <!-- -->
 
-    python -m mypackage_wsc.infra_bootstrap --provider aws --account < mygroup >-< myenv >
+    python -m iac_bootstrap.infra_bootstrap --provider aws --account < mygroup >-< myenv >
 
 Run Build-infra script:
 
-    python -m mypackage_wsc.infra_builder_terraform --account < mygroup >-< myenv >
+    python -m iac_bootstrap.infra_builder_terraform --account < mygroup >-< myenv >
 
 And Voilà, you have created an infrastructure in your aws account !
 
@@ -77,10 +77,9 @@ And Voilà, you have created an infrastructure in your aws account !
 
 Now the final step is to install nginx:
 
-    python -m mypackage_wsc.install_nginx --group < mygroup > --env < myenv >
+    python -m iac_bootstrap.install_nginx --group < mygroup > --env < myenv >
 
-At this point, you can access to your public instance with http and you
-will view Nginx server page.
+At this point, you can access to your public instance with http and you will view Nginx server page.
 
 - Hence , the final architecture is:
 
