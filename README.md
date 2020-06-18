@@ -16,7 +16,7 @@ Using pip, the Python package manager:
 
 ```
 
-pip install --user iac-bootstrap==1.0.1
+pip install --user iac_bootstrap==1.0.2
 
 ```
 
