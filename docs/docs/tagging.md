@@ -6,9 +6,11 @@ Tagging has multiple purposes.
 
 ## Filtering
 
-We use tags to filter resources: - to explore or search resources. - to
-select resources for dashboarding, alerting. - to parameter monitoring
-systems (retention, log level).
+We use tags to filter resources:
+
+- to explore or search resources.
+- to select resources for dashboarding, alerting.
+- to parameter monitoring systems (retention, log level).
 
 ## Reporting
 
@@ -27,7 +29,7 @@ We use tags to automate generic actions such as:
 - destroying resources.
 - performing backups, updates.
 
-## General Tagging Strategy 
+## General Tagging Strategy
 
 The following tags apply:
 
