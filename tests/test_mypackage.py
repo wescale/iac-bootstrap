@@ -12,7 +12,7 @@ def test_infra_bootstrap():
 
     test_Account = subprocess.Popen("python3 iac_bootstrap/infra_bootstrap.py", stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
     out = test_Account.communicate()[1]
-    assert out == b'Missing account argument,Wedeployer Can not run without Account\n'
+    assert out == b'Missing account argument,iac_bootstrap Can not run without Account\n'
 
     test_region = subprocess.Popen("python3 iac_bootstrap/infra_bootstrap.py --account mygroup-myenv --region nowhere", stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
     out = test_region.communicate()[1]
@@ -30,7 +30,7 @@ def test_infra_bootstrap():
 def test_infra_builder_terraform():
     test_Account = subprocess.Popen("python3 iac_bootstrap/infra_builder_terraform.py", stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
     out = test_Account.communicate()[1]
-    assert out == b'Missing account argument,Wedeployer Can not run without Account\n'
+    assert out == b'Missing account argument,iac_bootstrap Can not run without Account\n'
 
     os.chdir('./examples/infra-base')
     test_region = subprocess.Popen("python3 ../../iac_bootstrap/infra_builder_terraform.py --account mygroup-myenv --region nowhere", stderr=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
