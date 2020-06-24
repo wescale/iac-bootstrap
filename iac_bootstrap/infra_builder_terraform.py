@@ -86,7 +86,7 @@ def main(args):
         sys.exit(1)
 
     if args.account is None:
-        logger.error("Missing account argument,Wedeployer Can not run without Account")
+        logger.error("Missing account argument,iac_bootstrap Can not run without Account")
         sys.exit(1)
 
     try:

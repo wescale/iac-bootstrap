@@ -53,7 +53,7 @@ if __name__ == '__main__':
         logger.error("Error in provider argument")
         sys.exit()
     if args.account is None:
-        logger.error("Missing account argument,Wedeployer Can not run without Account")
+        logger.error("Missing account argument,iac_bootstrap Can not run without Account")
         sys.exit(1)
     try:
         account_name = args.account
