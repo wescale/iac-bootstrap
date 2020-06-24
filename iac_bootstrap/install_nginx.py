@@ -16,7 +16,7 @@ def main(group, env):
     if group is None or env is None:
         logger.error("\nNo arguments passed\n")
         logger.warning("Please to run ansible you should pass your group and environnement in arguments\n")
-        logger.warning('Syntax : python wedeployer/install-nginx.py --group <group> --env <environnement>\n')
+        logger.warning('Syntax : python iac_bootstrap/install-nginx.py --group <group> --env <environnement>\n')
     else:
         generate.main(group, env)
         command_ansible = "ansible-playbook ansible/main.yml"
