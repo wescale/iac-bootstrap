@@ -27,6 +27,7 @@ or use the example with "mygroup" and "myenv" already available.
 
 ```
 cd examples/infra-base
+ssh-keygen -f configs/mygroup/myenv/ssh/id_rsa
 ```
 
 This generates the tfstate configuration
@@ -39,14 +40,19 @@ This launches the terraform layers to build the infrastructure (vpc and autoscal
 python -m iac_bootstrap.infra_builder_terraform --account mygroup-myenv
 ```
 
-This launches the ansible playbook to install nginx
+This installs the Ansible role and launches the playbook, to install nginx
 ```
-python -m iac_bootstrap.install_nginx --group mygroup-myenv
+ansible-galaxy install wescale.nginx -p ./ansible/roles/external/
+export ANSIBLE_CONFIG="$PWD/mygroup-myenv-ansible.cfg"
+
+python -m iac_bootstrap.install_nginx --group mygroup --env myenv
 ```
 
 .. Then you can destroy the infra when you have finished
 ```
 python -m iac_bootstrap.infra_builder_terraform --account mygroup-myenv --action destroy
+
+aws s3 rm s3://mygroup-myenv-eu-west-1-tfstate --recursive
 python -m iac_bootstrap.infra_bootstrap --account mygroup-myenv --action destroy
 ```
 
