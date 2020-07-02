@@ -1,3 +1,7 @@
+"""
+Install nginx
+
+"""
 import os
 import sys
 import argparse
