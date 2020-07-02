@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="iac_bootstrap",
-    version="1.0.3",
+    version="1.0.4",
     author="mehdi kerbedj",
     author_email="mehdi.kerbedj@wescale.fr",
     description="Python package to automate deploiment of the infrastructures",

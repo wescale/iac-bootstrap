@@ -1,4 +1,5 @@
 import os
+import sys
 import argparse
 import logging
 from iac_bootstrap import generate
@@ -18,9 +19,14 @@ def main(group, env):
         logger.warning("Please to run ansible you should pass your group and environnement in arguments\n")
         logger.warning('Syntax : python iac_bootstrap/install-nginx.py --group <group> --env <environnement>\n')
     else:
-        generate.main(group, env)
-        command_ansible = "ansible-playbook ansible/main.yml"
-        os.system(command_ansible)
+        try:
+            generate.main(group, env)
+            command_ansible = "ansible-playbook ansible/main.yml"
+            os.system(command_ansible)
+        except:
+            logger.error("Error In structure, please follow the infra-base example")
+            sys.exit(1)
+
 if __name__ == '__main__':
    # Initialize the parser
     parser = argparse.ArgumentParser(description="Ansible playbook run ")

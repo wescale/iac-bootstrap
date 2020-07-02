@@ -39,10 +39,14 @@ def main(group, env):
     """
     bastion_public_ip = get("{}-{}-bastion-asg".format(group, env), "eu-west-1", "Public")
     workdir = os.getcwd()
-    tpl_dir = Environment(loader=FileSystemLoader('{}/templates/'.format(workdir)))
-    template_cfg = tpl_dir.get_template('ansible-cfg.j2')
-    template_ssh = tpl_dir.get_template('ssh-cfg.j2')
-    template_in = tpl_dir.get_template('inventory.j2')
+    try:
+        tpl_dir = Environment(loader=FileSystemLoader('{}/templates/'.format(workdir)))
+        template_cfg = tpl_dir.get_template('ansible-cfg.j2')
+        template_ssh = tpl_dir.get_template('ssh-cfg.j2')
+        template_in = tpl_dir.get_template('inventory.j2')
+    except:
+        sys.exit(1)
+
     nginx_ips = get("{}-{}-nginx-asg".format(group, env), "eu-west-1", "Private")
     nginx_ips = nginx_ips.split("\n")
 
