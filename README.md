@@ -10,7 +10,7 @@ The full [documentation](https://iac-bootstrap.readthedocs.io/en/latest/) is ava
 
 To install the package.
 ```
-pip install --user iac_bootstrap==1.0.3
+pip install --user iac_bootstrap==1.0.4
 ```
 
 There is a [quickstart](https://iac-bootstrap.readthedocs.io/en/latest/quickstart/) you should follow to build your own customized infrastructure.

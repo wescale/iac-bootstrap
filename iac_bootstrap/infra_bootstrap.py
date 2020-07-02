@@ -29,7 +29,11 @@ def main(action, options, group, env, region, provider):
     command_apply = "terraform {} {} -var=group={}\
     -var=env={} -var=region={key} -state={}/bootstrap-{}-{key}.tfstate".format(
         action, options, group, env, config_dir, provider, key=region)
-    os.chdir(bootstrap_dir)
+    try:
+        os.chdir(bootstrap_dir)
+    except FileNotFoundError:
+        logger.error("Error In structure, please follow the infra-base example")
+        sys.exit()
     os.system(command_init)
     os.system(command_apply)
 
