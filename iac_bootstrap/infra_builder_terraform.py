@@ -35,7 +35,11 @@ def init_layer(layer, region, account, provider, target_bucket):
     -backend-config bucket={}\
     -backend-config key={}.tfstate\
     -force-copy".format(account, target_bucket, layer, region=region)
-    os.chdir("{}{}/{}/".format(layer_path, provider, layer))
+    try:
+        os.chdir("{}{}/{}/".format(layer_path, provider, layer))
+    except FileNotFoundError:
+        logger.error("Error In structure, please follow the infra-base example")
+        sys.exit()
     os.system(command_init)
 
 # Terraform Action function
@@ -114,7 +118,12 @@ def main(args):
     options = ""
     target_bucket = "{}-{}-tfstate".format(account, region)
     command_find = "ls -1 {}{}".format(layer_path, provider)
-    output = check_output(command_find, shell=True, stderr=STDOUT)
+    try:
+        output = check_output(command_find, shell=True, stderr=STDOUT)
+    except:
+        logger.error("Error In structure, please follow the infra-base example")
+        sys.exit(1)
+
     Layers = str(output.decode("utf-8"))
     Layers = Layers.split("\n")
     check_argument = True

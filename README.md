@@ -1,49 +1,61 @@
 # iac-bootstrap
 
-iac-bootstrap is Python package to automate deploiment of infrastructure. Writtent and compatible with python 3 .
-to use iac-bootstrap you should follow infra-base (structure).
+iac-bootstrap is a package to make fast deployments of infrastructure,  
+on cloud providers, like AWS, with IAC tools like Ansible and Terraform.  
 
-## Documentation
+The full [documentation](https://iac-bootstrap.readthedocs.io/en/latest/) is available on Readthedocs.
 
-Documentation to infra-base
-<br>
-<https://iac-bootstrap.readthedocs.io/en/latest/>
-</br>
 
 ## installation
 
-Using pip, the Python package manager:
-
+To install the package.
+```
+pip install --user iac_bootstrap==1.0.4
 ```
 
-pip install --user iac_bootstrap==1.0.3
+There is a [quickstart](https://iac-bootstrap.readthedocs.io/en/latest/quickstart/) you should follow to build your own customized infrastructure.
+
+If you want to test our example to get an idea of how it works, you can follow our simple usage, described below.
+
+
+## Simple usage
+
+iac-bootstrap automates terraform initialization and deployment, although generating necessary files for ansible and launch playbooks.  
+
+You can use the available example, and define your own `group` and `env` values,  
+or use the example with "mygroup" and "myenv" already available.
 
 ```
-
-iac-bootstrap is developed for Linux , No windows version is available.
-
-## Usage
-
-iac-bootstrap automate terraform initialization and deploiment ,although generating necessary files for ansible and launch playbook.<br>
-I will describe below simple usage.
-
-- iac_bootstrap.infra_bootstrap:
-
-```
-python -m iac_bootstrap.infra_bootstrap --account <group>-<env>
+cd examples/infra-base
+ssh-keygen -f configs/mygroup/myenv/ssh/id_rsa
 ```
 
-- iac_bootstrap.infra_builder_terraform:
+This generates the tfstate configuration
+```
+python -m iac_bootstrap.infra_bootstrap --account mygroup-myenv
+```
 
+This launches the terraform layers to build the infrastructure (vpc and autoscaling group)
 ```
-python -m iac_bootstrap.infra_builder_terraform --account <group>-<env>
+python -m iac_bootstrap.infra_builder_terraform --account mygroup-myenv
 ```
 
-- iac_bootstrap.install_nginx:
+This installs the Ansible role and launches the playbook, to install nginx
+```
+ansible-galaxy install wescale.nginx -p ./ansible/roles/external/
+export ANSIBLE_CONFIG="$PWD/mygroup-myenv-ansible.cfg"
 
+python -m iac_bootstrap.install_nginx --group mygroup --env myenv
 ```
-python -m iac_bootstrap.install_nginx --group <group>-<env>
+
+.. Then you can destroy the infra when you have finished
 ```
+python -m iac_bootstrap.infra_builder_terraform --account mygroup-myenv --action destroy
+
+aws s3 rm s3://mygroup-myenv-eu-west-1-tfstate --recursive
+python -m iac_bootstrap.infra_bootstrap --account mygroup-myenv --action destroy
+```
+
 
 ## Features
 
